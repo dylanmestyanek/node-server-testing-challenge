@@ -13,17 +13,23 @@ function get() {
 };
 
 function getById(id) {
-    return null;
+    return db('workers').where({ id }).first();
 };
 
 function add(worker){
-    return null;
+    return db('workers')
+        .insert(worker)
+        .then(([id]) => getById(id));
 };
 
 function update(id, worker){
-    return null;
+    return db('workers')
+        .where({ id })
+        .update(worker);
 };
 
 function remove(id){
-    return null;
+    return db('workers')
+        .where({ id })
+        .del();
 };
